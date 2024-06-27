@@ -26,15 +26,15 @@ export const signUp = catchAsync(async (req, res, next) => {
 
   let result;
 
-  // check if user upload right image
-  const imageUpload = req.file.mimetype.startsWith("image");
-  if (!imageUpload) {
-    return next(
-      new APPError(`this is not image, please upload an image!`, 400)
-    );
-  }
-
   if (req.file) {
+    // check if user upload right image
+    const imageUpload = req.file.mimetype.startsWith("image");
+    if (!imageUpload) {
+      return next(
+        new APPError(`this is not image, please upload an image!`, 400)
+      );
+    }
+
     let encodedImage = `data:image/jpeg;base64,${req.file.buffer.toString(
       "base64"
     )}`;
@@ -304,15 +304,15 @@ export const updateMe = catchAsync(async (req, res, next) => {
     email: req.body.email,
   };
 
-  // check if user upload right image
-  const imageUpload = req.file.mimetype.startsWith("image");
-  if (!imageUpload) {
-    return next(
-      new APPError(`this is not image, please upload an image!`, 400)
-    );
-  }
-
   if (req.file) {
+    // check if user upload right image
+    const imageUpload = req.file.mimetype.startsWith("image");
+    if (!imageUpload) {
+      return next(
+        new APPError(`this is not image, please upload an image!`, 400)
+      );
+    }
+
     let encodedImage = `data:image/jpeg;base64,${req.file.buffer.toString(
       "base64"
     )}`;
