@@ -1,17 +1,15 @@
-import express from "express";
-import candidateRouter from "./routes/candidateRoutes.js";
-import voterRouter from "./routes/voterRoutes.js";
-import authRouter from "./routes/authRoutes.js";
-import voteRouter from "./routes/voteRoutes.js";
-import globalErrorHandlingMiddleware from "./controllers/errorController.js";
-import APPError from "./utils/APPError.js";
 import cors from "cors";
+import express from "express";
+import globalErrorHandlingMiddleware from "./controllers/errorController.js";
+import authRouter from "./routes/authRoutes.js";
+import candidateRouter from "./routes/candidateRoutes.js";
+import voteRouter from "./routes/voteRoutes.js";
+import voterRouter from "./routes/voterRoutes.js";
+import APPError from "./utils/APPError.js";
 
-import { dbURL, SESSION_SECRET } from "./config/config.js";
-import Vote from "./models/votes.js";
 const app = express();
 app.use(express.json());
-app.use(cors);
+app.use(cors());
 // Session setup
 // app.use(
 //   session({
