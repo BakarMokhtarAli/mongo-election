@@ -98,6 +98,7 @@ export const signInCandidate = catchAsync(async (req, res, next) => {
     httpOnly: true,
     secure: true,
     maxAge: expiresIn * 1000,
+    sameSite: "strict",
   });
   //   console.log(token);
   isCandidateExist.password = undefined;

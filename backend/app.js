@@ -9,7 +9,12 @@ import APPError from "./utils/APPError.js";
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: ["https://mongo-election.onrender.com"],
+    credentials: true, // Allow credentials (cookies, authorization headers)
+  })
+);
 // Session setup
 // app.use(
 //   session({
