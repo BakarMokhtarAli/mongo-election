@@ -96,7 +96,7 @@ export const signInCandidate = catchAsync(async (req, res, next) => {
   });
   res.cookie("token", token, {
     httpOnly: true,
-    secure: (process.env.NODE_ENV = "production" ? true : false),
+    secure: true,
     maxAge: expiresIn * 1000,
   });
   //   console.log(token);

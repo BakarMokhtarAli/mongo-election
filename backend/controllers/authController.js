@@ -168,7 +168,7 @@ export const signIn = catchAsync(async (req, res, next) => {
   });
   res.cookie("token", token, {
     httpOnly: true,
-    secure: false,
+    secure: true,
     maxAge: expiresIn * 1000,
   });
   //   console.log(token);
